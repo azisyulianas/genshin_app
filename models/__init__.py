@@ -1,0 +1,1 @@
+from . import genshin_character
