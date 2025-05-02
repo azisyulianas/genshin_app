@@ -6,9 +6,14 @@ class GenshinCharModel(models.Model):
   _order = "name desc"
 
   name = fields.Char()
+  unique_name = fields.Char()
   title = fields.Char()
-  affilation = fields.char()
-  rarity = fields.Integer()
+  affilation = fields.Char()
+  nation = fields.Char()
+  rarity = fields.Selection([
+    ("4","4 Star"),
+    ("5","5 Star"),
+  ], "Rarity")
   relase = fields.Date()
   description = fields.Text()
   constellation_name = fields.Char()
@@ -29,24 +34,23 @@ class GenshinCharModel(models.Model):
     ("CATALYST","Catalyst"),
     ("BOW","Bow"),
   ])
+  ascension_material_ids = fields.Many2many(
+    "genshin.character.ascensionmaterial"
+  )
   constelation_ids = fields.One2many(
     "genshin.character.constelation",
     "character_id",
     "Constelaltion"
   )
-  passive_talent_ids = fields.One2many(
-    "genshin.character.passivealent",
-    "character_id",
-    "Passive Talent"
-  )
-  skill_talent_ids = fields.One2many(
-    "genshin.character.skilltalent",
+  talent_ids = fields.One2many(
+    "genshin.character.talent",
     "character_id",
     "Skill Talent"
   )
   image_card = fields.Binary("Card")
   image_gacha_card = fields.Binary("Gacha Card")
   image_gacha_splash = fields.Binary("Gacha Splash")
+  image_icon_big = fields.Binary("Icon Big")
 
 
 

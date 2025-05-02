@@ -10,3 +10,8 @@ class GenshinMaterial(models.Model):
   name = fields.Char()
   rarity = fields.Integer()
   image = fields.Binary()
+  parent = fields.Many2one(
+    'genshin.material.parent',
+    'Parent'
+  )
+  

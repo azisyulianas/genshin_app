@@ -1,11 +1,15 @@
 from odoo import fields, api, models
 
-class GenshinCharacterSkillTalent(models.Model):
-  _name = "genshin.character.skilltalent"
+class GenshinCharacterTalent(models.Model):
+  _name = "genshin.character.talent"
   _description = "Model description for character's Skill Talent"
 
   name = fields.Char()
   description = fields.Text()
+  talent_type = fields.Selection([
+    ("passive","Passive Talent"),
+    ("skill","Skill Talent"),
+  ])
   type = fields.Selection([
     ("NORMAL_ATTACK",'Normal Attack'),
     ("ELEMENTAL_SKILL",'Elemental Skill'),

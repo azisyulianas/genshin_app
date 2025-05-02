@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <menuitem
+    id="genshin_menu"
+    name="Genshin"
+    />
+  <record id="action_genshin_character" model="ir.actions.act_window">
+    <field name="name">Genshin Character</field>
+    <field name="res_model">genshin.character</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem
+    id="menu_genshin_character"
+    name="Character"
+    parent="genshin_menu"
+    sequence="1"
+    />
+  <menuitem
+    id="menu_genshin_character_list"
+    name="List"
+    action="action_genshin_character"
+    parent="menu_genshin_character"
+    sequence="1"
+    />
+</odoo>

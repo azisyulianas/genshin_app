@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_genshin_character,Genshin Character,model_genshin_character,genshin_app.genshin_group_manager,1,1,1,1
+access_genshin_ascensionmaterial,Genshin Character Ascension Material,model_genshin_character_ascensionmaterial,genshin_app.genshin_group_manager,1,1,1,1
+access_genshin_passivetalent,Genshin Character Passive Talent,model_genshin_character_talent,genshin_app.genshin_group_manager,1,1,1,1
+access_genshin_constelation,Genshin Character Constelation,model_genshin_character_constelation,genshin_app.genshin_group_manager,1,1,1,1
+access_genshin_material,Genshin Material,model_genshin_material,genshin_app.genshin_group_manager,1,1,1,1
+access_genshin_material_parent,Genshin Material Parent,model_genshin_material_parent,genshin_app.genshin_group_manager,1,1,1,1
