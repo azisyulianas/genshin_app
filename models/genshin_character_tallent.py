@@ -3,6 +3,7 @@ from odoo import fields, api, models
 class GenshinCharacterTalent(models.Model):
   _name = "genshin.character.talent"
   _description = "Model description for character's Skill Talent"
+  _order = "level"
 
   name = fields.Char()
   description = fields.Text()
@@ -19,4 +20,5 @@ class GenshinCharacterTalent(models.Model):
     "genshin.character",
     "Character"
   )
+  level = fields.Integer()
   image = fields.Binary()

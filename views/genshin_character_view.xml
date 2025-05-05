@@ -24,11 +24,40 @@
               <div class="o_row">
                 <label for='rarity'>Rarity</label>
                 <field name="rarity" />
-                <label for='vision'>Rarity</label>
+                <label for='vision'>Element</label>
                 <field name="vision" />
-                <label for="weapon" ></label>
+                <label for="weapon">Weapon</label>
                 <field name="weapon" />
               </div>
+              <notebook>
+                <page string="Gallery" >
+
+                </page>
+                <page string="Talent" >
+                  <field name="talent_ids">
+                    <tree string="Caption" create="false" delete="false" edit="false" editable="bottom">
+                      <field name="name" />
+                      <field name="description" />
+                    </tree>
+                  </field>
+                </page>
+                <page string="Constelation" >
+                  <field name="constelation_ids">
+                    <tree string="Caption" create="false" delete="false" edit="false" editable="bottom">
+                      <field name="name" />
+                      <field name="description" />
+                    </tree>
+                  </field>
+                </page>
+                <page string="Ascension Material" >
+                  <field name="ascension_material_ids" readonly="1">
+                    <tree string="Caption" create="false" delete="false" edit="false" editable="bottom">
+                      <field name="material_id" />
+                      <field name="value" />
+                    </tree>
+                  </field>
+                </page>
+              </notebook>
             </sheet>
         </form>
       </field>
