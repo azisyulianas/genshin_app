@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+    <record id="form_genshin_input_character" model="ir.ui.view">
+      <field name="name">genshin.character.input.form</field>
+      <field name="model">genshin.character.input</field>
+      <field name="priority" eval="8"/>
+      <field name="arch" type="xml">
+        <form string="Character Check">
+          <group>
+            <field name="name_id" />
+          </group>
+          <footer>
+            <footer>
+              <button string="Check" class="btn-primary" name="check" type="object"/>
+              <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+            </footer>
+          </footer>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

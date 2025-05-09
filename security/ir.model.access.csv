@@ -5,3 +5,4 @@ access_genshin_passivetalent,Genshin Character Passive Talent,model_genshin_char
 access_genshin_constelation,Genshin Character Constelation,model_genshin_character_constelation,genshin_app.genshin_group_manager,1,1,1,1
 access_genshin_material,Genshin Material,model_genshin_material,genshin_app.genshin_group_manager,1,1,1,1
 access_genshin_material_parent,Genshin Material Parent,model_genshin_material_parent,genshin_app.genshin_group_manager,1,1,1,1
+access_genshin_input_char_modal,Genshin Input Char,model_genshin_character_input,genshin_app.genshin_group_manager,1,1,1,1

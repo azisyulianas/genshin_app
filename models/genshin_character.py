@@ -52,5 +52,17 @@ class GenshinCharModel(models.Model):
   image_gacha_splash = fields.Binary("Gacha Splash")
   image_icon_big = fields.Binary("Icon Big")
 
+  _sql_constraints = [
+    ("unique_name",'UNIQUEUNIQUE(unique_name)',"name alerdy exist")
+  ]
 
+  def input_via_api(self):
+    return {
+      'type': 'ir.actions.act_window',
+      'name': 'Input Character',
+      'res_model': 'genshin.character.input',
+      'view_mode': 'form',
+      'view_type': 'form',
+      'target': 'new',
+    }
 

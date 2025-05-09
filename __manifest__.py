@@ -13,7 +13,8 @@
     'security/genshin_app_security.xml',
     'security/ir.model.access.csv',
     'views/genshin_menu.xml',
-    'views/genshin_character_view.xml'
+    'views/genshin_character_view.xml',
+    'views/genshin_character_input.xml'
   ],
   'installable': True,
   'application': True,
