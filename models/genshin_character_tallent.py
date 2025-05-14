@@ -6,6 +6,7 @@ class GenshinCharacterTalent(models.Model):
   _order = "level"
 
   name = fields.Char()
+  unique_id = fields.Char()
   description = fields.Text()
   talent_type = fields.Selection([
     ("passive","Passive Talent"),
@@ -15,6 +16,7 @@ class GenshinCharacterTalent(models.Model):
     ("NORMAL_ATTACK",'Normal Attack'),
     ("ELEMENTAL_SKILL",'Elemental Skill'),
     ("ELEMENTAL_BURST",'Elemental Burst'),
+    ("OTHER",'other'),
   ])
   character_id = fields.Many2one(
     "genshin.character",

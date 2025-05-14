@@ -8,7 +8,7 @@
       <field name="arch" type="xml">
         <form string="Character Info">
             <sheet>
-              <field name="image_icon_big" widget='image' class="oe_avatar"/>
+              <field name="image_icon_big" widget='image' class="oe_avatar" readonly="1"/>
               <div class="oe_title">
                 <h1><field name="name" placeholder="Char Name" /></h1>
                 <small class="text-muted"><field name="title" /></small>
@@ -28,24 +28,51 @@
                 <label for="weapon">Weapon</label>
                 <field name="weapon" />
               </div>
-              <notebook>
-                <page string="Gallery" >
-
-                </page>
+              <notebook> 
                 <page string="Talent" >
                   <field name="talent_ids">
-                    <tree string="Caption" create="false" delete="false" edit="false" editable="bottom">
+                    <kanban create="false" delete="false" edit="false" editable="bottom">
+                      <field name="id" />
+                      <field name="image" />
                       <field name="name" />
                       <field name="description" />
-                    </tree>
+                      <templates>
+                        <t t-name="kanban-box">
+                          <div class="row">
+                            <div class="col-5 text-center">
+                              <img t-att-src="kanban_image('genshin.character.talent', 'image', record.id.raw_value)" class="img-fluid rounded mx-auto d-block"/>
+                            </div>
+                            <div class="col oe_kanban_details d-flex flex-column">
+                              <field name="name" class="fw-bold" />
+                              <field name="description" />
+                            </div>
+                          </div>
+                        </t>
+                      </templates>
+                    </kanban>
                   </field>
                 </page>
                 <page string="Constelation" >
                   <field name="constelation_ids">
-                    <tree string="Caption" create="false" delete="false" edit="false" editable="bottom">
+                    <kanban create="false" delete="false" edit="false" editable="bottom">
+                      <field name="id" />
+                      <field name="image" />
                       <field name="name" />
                       <field name="description" />
-                    </tree>
+                      <templates>
+                        <t t-name="kanban-box">
+                          <div class="row">
+                            <div class="col-5 text-center">
+                              <img t-att-src="kanban_image('genshin.character.constelation', 'image', record.id.raw_value)" class="img-fluid rounded mx-auto d-block"/>
+                            </div>
+                            <div class="col oe_kanban_details d-flex flex-column">
+                              <field name="name" class="fw-bold" />
+                              <field name="description" />
+                            </div>
+                          </div>
+                        </t>
+                      </templates>
+                    </kanban>
                   </field>
                 </page>
                 <page string="Ascension Material" >
@@ -55,6 +82,16 @@
                       <field name="value" />
                     </tree>
                   </field>
+                </page>
+                <page string="Gallery" >
+                  <div class="o_row">
+                    <field name="image_gacha_card" widget='image' readonly="1"/>
+                    <field name="image_gacha_splash" widget='image' readonly="1"/>
+                  </div>
+                  <div class="o_row">
+                    <field name="image_card" widget='image' readonly="1"/>
+                    <field name="image_constelation" widget='image' readonly="1"/>
+                  </div>
                 </page>
               </notebook>
             </sheet>

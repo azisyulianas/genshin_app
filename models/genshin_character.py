@@ -52,6 +52,7 @@ class GenshinCharModel(models.Model):
   image_gacha_card = fields.Binary("Gacha Card")
   image_gacha_splash = fields.Binary("Gacha Splash")
   image_icon_big = fields.Binary("Icon Big")
+  image_constelation = fields.Binary("Constelation")
 
   _sql_constraints = [
     ("unique_name",'UNIQUEUNIQUE(unique_name)',"name alerdy exist")
