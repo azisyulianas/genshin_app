@@ -8,24 +8,24 @@ class GenshinCharModel(models.Model):
   name = fields.Char()
   unique_name = fields.Char()
   title = fields.Char()
-  affilation = fields.Char()
+  affiliation = fields.Char()
   nation = fields.Char()
   rarity = fields.Selection([
     ("4","4 Star"),
     ("5","5 Star"),
   ], "Rarity")
-  relase = fields.Date()
+  release = fields.Date()
   description = fields.Text()
   constellation_name = fields.Char()
   birthday = fields.Char()
   vision = fields.Selection([
       ("ANEMO", "Anemo"),
-      ("CRYO", "cryo"),
-      ("DENDRO", "dendro"),
-      ("ELECTRO", "electro"),
-      ("GEO", "geo"),
-      ("HYDRO", "hydro"),
-      ("PYRO", "pyro"),
+      ("CRYO", "Cryo"),
+      ("DENDRO", "Dendro"),
+      ("ELECTRO", "Electro"),
+      ("GEO", "Geo"),
+      ("HYDRO", "Hydro"),
+      ("PYRO", "Pyro"),
     ], string="Vision")
   weapon = fields.Selection([
     ("SWORD","Sword"),
@@ -47,6 +47,7 @@ class GenshinCharModel(models.Model):
     "character_id",
     "Skill Talent"
   )
+
   image_card = fields.Binary("Card")
   image_gacha_card = fields.Binary("Gacha Card")
   image_gacha_splash = fields.Binary("Gacha Splash")
