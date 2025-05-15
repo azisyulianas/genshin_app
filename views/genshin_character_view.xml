@@ -76,9 +76,11 @@
                   </field>
                 </page>
                 <page string="Ascension Material" >
+                  <button name="action_generate_material" type="object" string="Get Ascension Material"/>
                   <field name="ascension_material_ids" readonly="1">
                     <tree string="Caption" create="false" delete="false" edit="false" editable="bottom">
                       <field name="material_id" />
+                      <field name="level"/>
                       <field name="value" />
                     </tree>
                   </field>

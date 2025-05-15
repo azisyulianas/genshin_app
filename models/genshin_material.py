@@ -1,5 +1,13 @@
 from odoo import fields, api, models
 
+MATERIAL_TYPE = [
+  ("boss-material","Bos Material"), ("character-ascension","Character Ascension"),
+  ("character-experience","Character Experience"), ("common-ascension","Common Ascension"),
+  ("cooking-ingredients","Cooking Ingredients"), ("local-specialties","Local Specialties"),
+  ("talent-book","Talent Book"), ("talent-boss","Talent Bos"),
+  ("weapon-ascension","Weapon Ascension"), ("weapon-experience","Weapon Experience"),
+]
+
 class GenshinMaterial(models.Model):
   _name = "genshin.material"
   _description = "Genshin Material Information"
@@ -10,8 +18,5 @@ class GenshinMaterial(models.Model):
   name = fields.Char()
   rarity = fields.Integer()
   image = fields.Binary()
-  parent = fields.Many2one(
-    'genshin.material.parent',
-    'Parent'
-  )
+  material_type = fields.Selection(MATERIAL_TYPE)
   

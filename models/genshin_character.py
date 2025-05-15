@@ -19,14 +19,15 @@ WEAPON = [
     ("BOW","Bow"),]
 
 def get_image_data(character_name, image_name):
-    LINK = API_URL_CHAR+character_name+'/'+ image_name
-    data = ""
-    try:
-        data = base64.b64encode(requests.get(LINK).content).replace(b"\n", b"")
-    except Exception as e:
-        _logger.warning("Can't load the image from URL %s" % LINK)
-        logging.exception(e)
-    return data
+  LINK = API_URL_CHAR+character_name+'/'+ image_name
+  data = ""
+  try:
+      data = base64.b64encode(requests.get(LINK).content).replace(b"\n", b"")
+  except Exception as e:
+      _logger.warning("Can't load the image from URL %s" % LINK)
+      logging.exception(e)
+  return data
+
 
 class GenshinCharModel(models.Model):
   _name = "genshin.character"
@@ -175,22 +176,27 @@ class GenshinCharModel(models.Model):
   def _compute_image_card(self):
     for record in self:
       record.image_card = get_image_data(record.unique_name, "card")
+ 
   @api.depends('unique_name')
   def _compute_image_gacha_card(self):
     for record in self:
       record.image_gacha_card = get_image_data(record.unique_name, "gacha-card")
+  
   @api.depends('unique_name')
   def _compute_image_gacha_splash(self):
     for record in self:
       record.image_gacha_splash = get_image_data(record.unique_name, "gacha-splash")
+  
   @api.depends('unique_name')
   def _compute_image_icon_big(self):
     for record in self:
       record.image_icon_big = get_image_data(record.unique_name, "icon-big")
+  
   @api.depends('unique_name')
   def _compute_image_constelation(self):
     for record in self:
       record.image_constelation = get_image_data(record.unique_name, "constellation")
+  
   @api.depends('unique_name','name')
   def _compute_character_constelation(self):
     for record in self:
@@ -216,7 +222,14 @@ class GenshinCharModel(models.Model):
           'level':constellations['level'],
           'image':get_image_data(record.unique_name, 'constellation-'+str(constellations['level'])),
         })
-    
+  
+  def action_generate_material(self):
+    self.ensure_one()
+    for key, values in self.data["ascension_materials"].items():
+      if key == "level_20":
+        for value in values:
+          unique_id = value
+
 
   def input_via_api(self):
     return {
