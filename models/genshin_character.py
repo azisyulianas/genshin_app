@@ -7,6 +7,8 @@ _logger = logging.getLogger(__name__)
 API_URL = "https://genshin.jmp.blue/"
 API_URL_CHAR = API_URL+"characters/"
 
+# AYAM GORENG
+
 VISION = [
       ("ANEMO", "Anemo"), ("CRYO", "Cryo"),
       ("DENDRO", "Dendro"), ("ELECTRO", "Electro"),
