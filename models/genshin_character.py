@@ -8,6 +8,7 @@ API_URL = "https://genshin.jmp.blue/"
 API_URL_CHAR = API_URL+"characters/"
 
 # AYAM GORENG
+# Gk ada ayam
 
 VISION = [
       ("ANEMO", "Anemo"), ("CRYO", "Cryo"),
